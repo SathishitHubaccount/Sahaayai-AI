@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 212 53% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 40 92% 61%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 265 45% 75%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-sahaay-background text-sahaay-text font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sahaay-blue text-white py-4 px-8 rounded-full text-xl font-semibold hover:bg-sahaay-blue-dark transition-colors shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-sahaay-orange text-white py-4 px-8 rounded-full text-xl font-semibold hover:bg-sahaay-orange-dark transition-colors shadow-md;
+  }
+  
+  .btn-emergency {
+    @apply bg-destructive text-white py-4 px-8 rounded-full text-xl font-semibold shadow-md animate-pulse hover:animate-none hover:bg-red-700 transition-colors;
+  }
+  
+  .card {
+    @apply bg-sahaay-background-card rounded-2xl p-6 shadow-md border border-gray-100;
+  }
+  
+  .input-large {
+    @apply text-xl p-4 border-2 border-sahaay-blue-light rounded-xl w-full focus:border-sahaay-blue focus:ring-2 focus:ring-sahaay-blue-light outline-none;
+  }
+}

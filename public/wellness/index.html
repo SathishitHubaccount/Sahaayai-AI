@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SahaayAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #50e9df;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Change .diva to use min-height instead of height */
+.diva {
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed from height: 100vh */
+    padding: 50px 0; /* Add padding to give space */
+    background-color: #ffffff;
+}
+
+/* Increase container padding for more space */
+.unique-container {
+    background: #ffffff;
+    padding: 40px; /* Increased from 30px */
+    border-radius: 12px;
+    box-shadow: 0 0 24px 4px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Make heading larger */
+.unique-heading {
+    text-align: center;
+    margin-bottom: 30px; /* Increased from 20px */
+    font-size: 28px; /* Increased from 24px */
+    color: #333;
+    font-weight: bold;
+}
+
+.unique-input-group {
+    margin-bottom: 20px; /* Increased from previous value */
+}
+
+.unique-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px; /* Increased from 16px */
+    font-weight: bold; /* Make labels bold */
+    color: #333;
+}
+
+.unique-input {
+    width: 100%;
+    padding: 15px; /* Increased from 12px */
+    font-size: 16px; /* Increased from 14px */
+    border: 2px solid #3a87ad; /* More visible border with color */
+    border-radius: 6px;
+    background: #f9f9f9;
+    transition: border 0.3s ease;
+    margin-bottom: 15px; /* Add space between input and next label */
+    height: 50px; /* Explicitly set height for text inputs */
+}
+
+select.unique-input {
+    height: 50px;
+}
+
+.unique-input:focus {
+    border-color: #007bff;
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.unique-voice-btn,
+.unique-submit-btn {
+    width: 100%;
+    padding: 15px; /* Increased from 12px */
+    font-size: 18px; /* Increased from 16px */
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px; /* Increased from 15px */
+    height: 50px; /* Match height of inputs */
+}
+
+.unique-voice-btn {
+    background-color: #0056b3;
+}
+
+.unique-voice-btn:hover {
+    background-color: #003d82;
+}
+
+.unique-submit-btn {
+    background-color: #28a745;
+}
+
+.unique-submit-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .unique-container {
+        max-width: 90%;
+    }
+}
+
+/* Logo */
+.logo {
+    background-image: url("https://www.sify.com/wp-content/uploads/2024/07/AI_robot_loneliness_older_vecteezy_1200.jpg");
+    height: 152px;
+    width: 500px;
+    border: 2px solid whitesmoke;
+    background-size: cover;
+}
+
+/* Navbar */
+.navbar {
+    height: 180px;
+    background-color: #e7931d;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Border Effects */
+.border {
+    border: 1.2px solid transparent;
+}
+
+.border:hover {
+    border: 2px solid azure;
+}
+
+/* Search Bar */
+.navsearch {
+    display: flex;
+    justify-content: space-evenly;
+    background: #ffffff;
+    width: 800px;
+    height: 85px;
+    border-radius: 3px;
+}
+
+.navsearch:hover {
+    border: 5px solid #673005;
+}
+
+.seaselect {
+    background: #180303;
+    width: 75px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    color: white;
+}
+
+.seainput {
+    width: 90%;
+    font-size: 1.3rem;
+    border: none;
+}
+
+.searchicon {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background: darkgoldenrod;
+    border-radius: 0 4px 4px 0;
+    color: #0f1111;
+}
+
+/* Fix the hero section positioning */
+.herosection {
+    margin-top: 2px; /* Changed from 14rem */
+    background: url("https://www.sify.com/wp-content/uploads/2024/07/AI_robot_loneliness_older_vecteezy_1200.jpg") no-repeat center;
+    height: 300px; /* Reduced from 1000px to a more reasonable size */
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.heromsg {
+    margin-top: 20px;
+    background: #2660a4;
+    color: azure;
+    border-radius: 2rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    width: 86%;
+}
+
+.heromsg:hover {
+    transition-timing-function: ease-in;
+    outline: 0.65rem solid rgba(68, 63, 63, 0.4);
+}
+
+/* Shop Section */
+.shopsection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: url("background.jpg") repeat;
+}
+
+.box {
+    height: 400px;
+    width: 23%;
+    background: azure;
+    padding: 20px;
+    border-radius: 1.5rem;
+    margin-top: 100px;
+}
+
+.boximg {
+    height: 300px;
+    background-size: cover;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
+/* Praise Section */
+.praise {
+    background: url("background.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 600px;
+    width: 100%;
+}
+
+.boximge {
+    height: 300px;
+    width: 350px;
+    background-size: cover;
+}
+
+/* Footer */
+.look {
+    background: url("background.jpg") no-repeat center;
+    background-size: cover;
+    height: 135px;
+}
+
+/* Adjust the output section to have proper positioning */
+.output-section {
+    margin: 30px auto; /* Changed from 170px auto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 24px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for Download Button */
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+}
+
+
+</style>
+<body>
+    <div>
+        <header>
+            <div class="nav">
+                <div class="navlogo">
+                    <img src="{{ url_for('static', filename='images/icon.jpg') }}" alt="My Image" width="300" height="260">
+                </div>
+            </div>    
+        </header>
+
+        <div class="diva">
+            <div class="unique-container">
+                <h2 class="unique-heading">Enter Your Details</h2>
+                <form class="unique-form" action="/submit" method="POST">
+    
+                    <!-- Name input with Voice -->
+                    <div class="unique-input-group">
+                        <label class="unique-label" for="name">Name / ಹೆಸರು:</label>
+                        <input class="unique-input" type="text" id="name" name="username" required>
+                    </div>
+                
+                    <!-- Patient ID input -->
+                    <div class="unique-input-group">
+                        <label class="unique-label" for="patientID">Patient ID / ರೋಗಿಯ ಐಡಿ:</label>
+                        <input class="unique-input" type="text" id="patientID" name="patientID" required>
+                    </div>
+                
+                    <!-- Sex selection -->
+                    <div class="unique-input-group">
+                        <label class="unique-label" for="sex">Sex / ಲಿಂಗ:</label>
+                        <select class="unique-input" id="sex" name="sex" required>
+                            <option value="">Select</option>
+                            <option value="male">Male ♂</option>
+                            <option value="female">Female ♀</option>
+                            <option value="other">Other ⚧</option>
+                        </select>
+                    </div>
+                
+                <!-- Age input with Voice -->
+<div class="unique-input-group">
+    <label class="unique-label" for="age">Age / ವಯಸ್ಸು:</label>
+    <input class="unique-input" type="number" id="age" name="age" required>
+    <button class="unique-voice-btn" type="button" onclick="startVoiceInput('age')">🎤 Speak Age</button>
+</div>
+
+<!-- Blood Group selection -->
+<div class="unique-input-group">
+    <label class="unique-label" for="bloodGroup">Blood Group / ರಕ್ತ ಗುಂಪು:</label>
+    <select class="unique-input" id="bloodGroup" name="bloodGroup" required>
+        <option value="">Select</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+    </select>
+</div>
+
+<!-- Kannada Symptoms Input -->
+<div class="unique-input-group">
+    <label class="unique-label" for="symptoms">Symptoms / ರೋಗ ಲಕ್ಷಣಗಳು (Kannada):</label>
+    <input class="unique-input" type="text" id="symptoms" name="symptoms" required oninput="translateSymptoms()">
+    <button class="unique-voice-btn" type="button" id="recordSymptomsBtn" onclick="startVoiceRecording()">🎤 Speak Symptoms</button>
+    <!-- Timer UI remains unchanged -->
+
+                        <!-- Timer UI -->
+                        <div id="timer-container" style="display: none; margin-top: 10px;">
+                            <div id="timer-display" style="text-align: center; font-size: 18px; font-weight: bold;">30</div>
+                            <div style="width: 100%; background-color: #ddd; height: 10px; margin-top: 5px; border-radius: 5px;">
+                                <div id="timer-progress" style="width: 100%; height: 100%; background-color: #4CAF50; border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Translated Symptoms Display -->
+                    <div class="unique-input-group">
+                        <label class="unique-label" for="translatedSymptoms">Translated Symptoms (English):</label>
+                        <input class="unique-input" type="text" id="translatedSymptoms" name="translatedSymptoms" readonly>
+                    </div>
+                
+                    <!-- Submit button -->
+                    <button class="unique-submit-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    <!-- Replace the output-section div with this -->
+<div class="output-section">
+    {% if patient_details %}
+    <h2>Prediction Results / ಊಹಿಸಿದ ಫಲಿತಾಂಶಗಳು</h2>
+    <p><strong>Recommended Department / ಶಿಫಾರಸು ಮಾಡಿದ ವಿಭಾಗ:</strong> {{ domain }}</p>
+    <a href="/download/{{ pdf_name }}" class="download-btn">Download Report / ವರದಿಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</a>
+    {% endif %}
+</div>
+        
+        <div class="herosection">
+            <div class="heromsg">
+                <p>A Voice that cares.. and a friend who's always there..</p>
+            </div>
+        </div>
+
+        <!-- JavaScript for voice input -->
+        <script>
+            function startVoiceInput(fieldId) {
+                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'kn-IN'; // Kannada language
+
+                recognition.onresult = function(event) {
+                    document.getElementById(fieldId).value = event.results[0][0].transcript;
+                };
+
+                recognition.start();
+            }
+// Kannada-to-English translation dictionary
+const kannadaToEnglish = {
+    // General Medicine
+    "ಆಯಾಸ": "fatigue",
+    "ಜ್ವರ": "fever",
+    "ತಲೆ ನೋವು": "headache",
+    "ತಲೆನೋವು": "headache",
+    "ಸಾಮಾನ್ಯ ನೋವು": "generalized pain",
+    "ಸಾಮಾನ್ಯನೋವು": "generalized pain",
+    "ಶೀತ": "cold",
+    "ಸೀತಾ": "cold",  
+    "ನೆಗಡಿ":"cold",
+    "ಗಾಯಗಳು": "injuries",
+    "ಮಾಂಸಖಂಡ ನೋವು": "muscle pain",
+    "ಮೈ ನೋವು": "body ache",
+    "ಮೈನೋವು": "body ache",
+    "ಚಳಿ": "chills",
+    "ದುರ್ಬಲತೆ": "weakness",
+    "ಹಸಿವಿಲ್ಲದಿರುವುದು": "loss of appetite",
+    "ಗಂಟಲು ನೋವು": "sore throat",
+    "ಗಂಟಲುನೋವು": "sore throat",
+
+    // Cardiology
+    "ಎದೆ ನೋವು": "chest pain",
+    "ಉಸಿರಾಟದ ತೊಂದರೆ": "shortness of breath",
+    "ಹೃದಯ ಬಡಿತ": "palpitations",
+    "ತಲೆತಿರುಗುವಿಕೆ": "dizziness",
+    "ರಕ್ತದೊತ್ತಡ": "blood pressure",
+    "ಅನಿಯಮಿತ ಹೃದಯ ಬಡಿತ": "irregular heartbeat",
+    "ಅತಿಯಾದ ಬೆವರು": "excessive sweating",
+    "ಮೂರ್ಛೆ": "fainting",
+    "ತೋಳಿನ ನೋವು": "arm pain",
+    "ತೋಳಿನನೋವು": "arm pain",
+    "ಹೃದಯ ನೋವು": "heartpain",
+    "ಹೃದಯನೋವು": "heartpain",
+    
+    // Dentist
+    "ಹಲ್ಲಿನ ನೋವು": "toothache",
+    "ಹಲ್ಲಿನನೋವು": "toothache",
+    "ಹಲ್ಲು ನೋವು": "toothache",
+    "ಹಲ್ಲುನೋವು": "toothache",
+    "ಒಸಡು ಊತ": "gum swelling",
+    "ಒಸಡುಊತ": "gum swelling",
+    "ರಕ್ತಸ್ರಾವ ಒಸಡುಗಳು": "bleeding gums",
+    "ಒಣಬಾಯಿ": "dry mouth",
+    "ಒಣ ಬಾಯಿ": "dry mouth",
+    "ಜಗಿಯುವ ತೊಂದರೆ": "difficult chewing",
+    "ದವಡೆ ನೋವು": "jaw pain",
+    "ದವಡೆನೋವು": "jaw pain",
+    "ದುರ್ವಾಸನೆ ಉಸಿರು": "bad breath",
+    "ಹಲ್ಲಿನ ಸಂವೇದನೆ": "tooth sensitivity",
+    "ಬಾಯಿ ಹುಣ್ಣುಗಳು": "mouth sores",
+    "ಬಾಯಿ ಹುಣ್ಣುಗಳು": "mouth sores",
+    "ಹಲ್ಲಿನ ಕಲೆ": "plaque buildup",
+    "ಸಡಿಲ ಹಲ್ಲುಗಳು": "loose teeth",
+    "ದವಡೆ ಬಿಗುಮಾನ": "jaw stiffness",
+    "ಊದಿದ ಲಸಿಕಾ ಗ್ರಂಥಿಗಳು": "swollen lymph nodes",
+    
+    // Otolaryngology
+    "ಕಿವಿ ನೋವು": "ear pain",
+    "ಕಿವಿನೋವು": "ear pain",
+    "ಮೂಗು ಕಟ್ಟುವಿಕೆ": "nasal congestion",
+    "ಕಿವಿ ಕೇಳದಿರುವುದು": "hearing loss",
+    "ಮೂಗು ಸೋರುವಿಕೆ": "running nose",
+    "ಕಿವಿ ಸ್ರಾವ": "ear discharge",
+    "ಕಿವಿಸ್ರಾವ": "ear discharge",
+    "ಸೈನಸ್ ಒತ್ತಡ": "sinus pressure",
+    "ಮೂಗಿನ ಹಿಂಭಾಗದ ಸ್ರಾವ": "postnasal drip",
+    "ಸೀನು": "sneezing",
+    "ಧ್ವನಿ ಕರಕುಶತೆ": "voice hoarseness",
+    "ಕೆಮ್ಮು": "cough",
+    "ಗಂಟಲು ಕಿರಿಕಿರಿ": "throat irritation",
+    
+    // Neurology
+    "ಮರಗಟ್ಟುವಿಕೆ": "numbness",
+    "ಜುಮ್ಮೆನಿಸುವಿಕೆ": "tingling",
+    "ತಲೆನೋವಿನೊಂದಿಗೆ ತಲೆತಿರುಗುವಿಕೆ": "dizziness with headache",
+    "ಕೀಲು ನೋವು": "joint pain",
+    "ಕೀಲುನೋವು": "joint pain",
+    "ಬೆನ್ನು ನೋವು": "back pain",
+    "ಬೆನ್ನುನೋವು": "back pain",
+    "ನರ ನೋವು": "nerve pain",
+    "ನರನೋವು": "nerve pain",
+    "ದೃಷ್ಟಿ ಸಮಸ್ಯೆಗಳು": "vision problems",
+    "ಮೂರ್ಛೆರೋಗ": "seizures",
+    "ಮಾತನಾಡುವ ತೊಂದರೆ": "speech difficulty",
+    "ದುರ್ಬಲ ಸಮನ್ವಯ": "poor coordination",
+    "ನೆನಪಿನ ನಷ್ಟ": "memory loss",
+    
+    // Gastroenterology
+    "ಹೊಟ್ಟೆ ನೋವು": "abdominal pain",
+    "ಹೊಟ್ಟೆನೋವು": "abdominal pain",
+    "ಅತಿಸಾರ": "diarrhea",
+    "ಮಲಬದ್ಧತೆ": "constipation",
+    "ವಾಕರಿಕೆ": "nausea",
+    "ವಾಂತಿ": "vomiting",
+    "ತೂಕ ಹೆಚ್ಚಳ": "weight gain",
+    "ಜೀರ್ಣಾಂಗದ": "gastric",
+    "ಉಬ್ಬರ": "bloating",
+    "ಆಮ್ಲ ಹಿನ್ನಡೆ": "acid reflux",
+    "ಹೊಟ್ಟೆ ಸೆಳೆತ": "stomach cramps",
+    "ಅಜೀರ್ಣ": "indigestion",
+    
+    // Pulmonology
+    "ಘರ್ಘರ ಧ್ವನಿ": "wheezing",
+    "ಎದೆ ಬಿಗುಮಾನ": "chest tightness",
+    "ತೂಕ ಕಡಿಮೆಯಾಗುವಿಕೆ": "weight loss",
+    "ಕಫ": "phlegm",
+    "ರಾತ್ರಿ ಬೆವರು": "night sweats",
+    "ದೀರ್ಘಕಾಲೀನ ಕೆಮ್ಮು": "chronic cough",
+    "ಉಸಿರಾಡಲು ಕಷ್ಟ": "difficulty breathing",
+    "ನೀಲಿ ತುಟಿಗಳು": "blue lips",
+    "ಎದೆ ಅಸ್ವಸ್ಥತೆ": "chest discomfort",
+    
+    // Dermatology
+    "ಕೊರೆತ": "itching",
+    "ಚರ್ಮದ ಗುಳ್ಳೆಗಳು": "rashes",
+    "ಕೆಂಪಾಗುವಿಕೆ": "redness",
+    "ಊತ": "swelling",
+    "ಒಣ ಚರ್ಮ": "dry skin",
+    "ಒಣಚರ್ಮ": "dry skin",
+    "ಕೂದಲು ಉದುರುವಿಕೆ": "hair loss",
+    "ಸುಲಭವಾಗಿ ಮುರಿಯುವ ಉಗುರು": "brittle nails",
+    "ಕೊರಕು": "eczema",
+    "ಚರ್ಮದ ಎತ್ತರಿಸುವಿಕೆ": "hives",
+    "ಮುಖದ ಗುಳ್ಳೆಗಳು": "acne",
+    "ಮುಖದಗುಳ್ಳೆಗಳು": "acne",
+    "ಚರ್ಮ ಸುಲಿಯುವಿಕೆ": "peeling skin",
+    "ನೀರುಗಟ್ಟುಗಳು": "blisters",
+    "ಕಪ್ಪು ಕಲೆಗಳು": "dark spots",
+    "ಕಪ್ಪುಕಲೆಗಳು": "dark spots",
+    
+    // Urology
+    "ನೋವಿನ ಮೂತ್ರ ವಿಸರ್ಜನೆ": "painful urination",
+    "ಪದೇ ಪದೇ ಮೂತ್ರ ವಿಸರ್ಜನೆ": "frequent urination",
+    "ಮೂತ್ರದಲ್ಲಿ ರಕ್ತ": "hematuria",
+    "ಕೆಳ ಹೊಟ್ಟೆ ನೋವು": "lower abdominal pain",
+    "ಉರಿಯುವ ಭಾವನೆ": "burning sensation",
+    "ಮಬ್ಬಾದ ಮೂತ್ರ": "cloudy urine",
+    "ತೀವ್ರ ಮೂತ್ರ ವಾಸನೆ": "strong urine odor",
+    "ಸೊಂಟದ ಅಸ್ವಸ್ಥತೆ": "pelvic discomfort",
+    "ಮೂತ್ರ ವಿಸರ್ಜನೆಯ ತುರ್ತು": "urinary urgency",
+    "ಮೂತ್ರಪಿಂಡದ ನೋವು": "kidney pain",
+    "ಮೂತ್ರ ಉಳಿಸಿಕೊಳ್ಳುವಿಕೆ": "urine retention",
+    
+    // Gynecology
+    "ಸೊಂಟದ ನೋವು": "pelvic pain",
+    "ಅನಿಯಮಿತ ಮುಟ್ಟು": "irregular menstruation",
+    "ಯೋನಿ ಸ್ರಾವ": "vaginal discharge",
+    "ಸ್ತನ ನೋವು": "breast tenderness",
+    "ಸಂಭೋಗದ ಸಮಯದಲ್ಲಿ ನೋವು": "pain during intercourse",
+    "ಹೊಟ್ಟೆ ಹಿಂಡಿ": "cramps",
+    "ಮನಸ್ಥಿತಿ ಬದಲಾವಣೆ": "mood swings",
+    "ಬಿಸಿ ಉರಿತ": "hot flashes",
+    "ಅಧಿಕ ರಕ್ತಸ್ರಾವ": "heavy bleeding",
+    "ಕೊರೆತ": "itching",
+    "ಉರಿಯುವಿಕೆ": "burning",
+    "ಕೆಳಗಿನ ಬೆನ್ನು ನೋವು": "lower back pain",
+    
+    // Psychiatry
+    "ಆತಂಕ": "anxiety",
+    "ನಿದ್ರಾ ವ್ಯತ್ಯಯ": "sleep disturbances",
+    "ಏಕಾಗ್ರತೆ ಕೊರತೆ": "lack of concentration",
+    "ಚಡಪಡಿಕೆ": "agitation",
+    "ಸ್ಮರಣ ಶಕ್ತಿ ಸಮಸ್ಯೆಗಳು": "memory problems",
+    "ಚಿಡುಕುತನ": "irritability",
+    "ಖಿನ್ನತೆ": "depression",
+    "ಸಾಮಾಜಿಕ ಹಿಂದೆಗೆತ": "social withdrawal",
+    "ಭ್ರಮೆಗಳು": "hallucinations",
+    "ಕಡಿಮೆ ಪ್ರೇರಣೆ": "low motivation",
+    "ಅಶಾಂತಿ": "restlessness"  };
+
+    function translateKannadaToEnglish(inputText) {
+        // Split input into words (in case user says multiple symptoms)
+        let words = inputText.split(/\s+/);
+
+        // Translate each word if it exists in the dictionary
+        let translatedWords = words.map(word => kannadaToEnglish[word] || word);
+
+        // Join back into a string and return
+        return translatedWords.join(" ");
+    }
+
+    function startVoiceRecording() {
+        let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "kn-IN";  // Set Kannada as input language
+
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            let kannadaText = event.results[0][0].transcript;  // Get transcribed Kannada text
+            let englishText = translateKannadaToEnglish(kannadaText);  // Translate to English
+
+            document.getElementById("symptoms").value = englishText;  // Show in input field
+        };
+
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+        };
+    }
+        
+    // New function for timer-based symptom recording
+    let symptomsRecognition;
+    let timerInterval;
+    let remainingTime = 30;
+    function startVoiceRecording() {
+    // Check if browser supports Speech Recognition
+    if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        alert("Sorry, your browser doesn't support speech recognition. Please try using Chrome.");
+        return;
+    }
+    
+    // Initialize speech recognition
+    symptomsRecognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    symptomsRecognition.lang = 'kn-IN'; // Kannada language
+    symptomsRecognition.continuous = true; // Allow continuous recording
+    symptomsRecognition.interimResults = true; // Get interim results
+    
+    // Clear previous input
+    document.getElementById('symptoms').value = "";
+    document.getElementById('translatedSymptoms').value = "";
+    
+    // Show and reset timer
+    remainingTime = 30;
+    document.getElementById('timer-container').style.display = 'block';
+    document.getElementById('timer-display').textContent = remainingTime;
+    document.getElementById('timer-progress').style.width = '100%';
+    document.getElementById('recordSymptomsBtn').disabled = true;
+    document.getElementById('recordSymptomsBtn').textContent = '🔴 Recording...';
+    
+    // Handle results
+    let finalTranscript = '';
+    
+    symptomsRecognition.onresult = function(event) {
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+                finalTranscript += transcript + ' ';
+            } else {
+                interimTranscript += transcript;
+            }
+        }
+        
+        // Update the input field with Kannada transcription
+        const kannadaText = finalTranscript + interimTranscript;
+        document.getElementById('symptoms').value = kannadaText;
+        
+        // Translate to English and update the translated field
+        translateSymptoms();
+        
+    };
+    
+    // Handle end of recognition
+    symptomsRecognition.onend = function() {
+        stopRecording();
+    };
+    
+    // Start recognition
+    symptomsRecognition.start();
+    
+    // Start timer
+    startTimer();
+}
+
+function translateSymptoms() {
+    const kannadaText = document.getElementById('symptoms').value;
+    
+    if (!kannadaText) {
+        document.getElementById('translatedSymptoms').value = "";
+        return;
+    }
+    
+    // First split by commas to separate different symptom entries
+    const symptomGroups = kannadaText.split(',').map(s => s.trim());
+    let allTranslatedSymptoms = [];
+    
+    for (const symptomGroup of symptomGroups) {
+        const words = symptomGroup.split(/\s+/).filter(word => word.trim().length > 0);
+        let i = 0;
+        let groupTranslations = [];
+        
+        while (i < words.length) {
+            let translated = false;
+            
+            // Try multi-word phrases first (starting with longest possible)
+            for (let phraseLength = Math.min(3, words.length - i); phraseLength > 1; phraseLength--) {
+                if (i + phraseLength <= words.length) {
+                    const phrase = words.slice(i, i + phraseLength).join(" ");
+                    if (kannadaToEnglish[phrase]) {
+                        groupTranslations.push(kannadaToEnglish[phrase]);
+                        i += phraseLength;
+                        translated = true;
+                        break;
+                    }
+                }
+            }
+            
+            // If no multi-word match found, try single word
+            if (!translated) {
+                const word = words[i];
+                groupTranslations.push(kannadaToEnglish[word] || word);
+                i++;
+            }
+        }
+        
+        // Add all translations from this group
+        allTranslatedSymptoms = allTranslatedSymptoms.concat(groupTranslations);
+    }
+    
+    // Join all translated symptoms with commas
+    document.getElementById('translatedSymptoms').value = allTranslatedSymptoms.join(", ");
+}
+
+function stopRecording() {
+    // Stop the recognition
+    if (symptomsRecognition) {
+        symptomsRecognition.stop();
+    }
+    
+    // Clear the timer
+    clearInterval(timerInterval);
+    
+    // Reset UI
+    document.getElementById('timer-container').style.display = 'none';
+    document.getElementById('recordSymptomsBtn').disabled = false;
+    document.getElementById('recordSymptomsBtn').textContent = '🎤 Speak Symptoms';
+    
+    // Make sure translation is complete
+    translateSymptoms();
+}
+
+function startTimer() {
+    // Reset timer values
+    remainingTime = 30;
+    document.getElementById('timer-display').textContent = remainingTime;
+    document.getElementById('timer-progress').style.width = '100%';
+    
+    // Clear any existing interval
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
+    
+    // Start new timer interval
+    timerInterval = setInterval(function() {
+        remainingTime--;
+        
+        // Update timer display
+        document.getElementById('timer-display').textContent = remainingTime;
+        
+        // Update progress bar (calculate percentage of time remaining)
+        const percentRemaining = (remainingTime / 30) * 100;
+        document.getElementById('timer-progress').style.width = percentRemaining + '%';
+        
+        // Change color as time decreases
+        if (remainingTime <= 10) {
+            document.getElementById('timer-progress').style.backgroundColor = '#ff9800'; // Orange
+        }
+        if (remainingTime <= 5) {
+            document.getElementById('timer-progress').style.backgroundColor = '#f44336'; // Red
+        }
+        
+        // Stop recording when timer reaches zero
+        if (remainingTime <= 0) {
+            stopRecording();
+        }
+    }, 1000);
+}
+
+        </script>
+    </div>
+</body>
+</html>

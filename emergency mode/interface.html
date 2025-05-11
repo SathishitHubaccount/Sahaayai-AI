@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+ <html> 
+  <head> 
+    <title>Voice Assistant Caller</title> 
+    <style> 
+      body { 
+        font-family: Arial, sans-serif; 
+        background-color: #f0f4f8; text-align: center; 
+        padding-top: 100px; 
+      }
+ 
+  h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  #status {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #2c3e50;
+  }
+  
+  .emergency-button {
+    background-color: #e74c3c;
+  }
+  
+  .emergency-button:hover {
+    background-color: #c0392b;
+  }
+  </style>
+ </head> 
+ <body> 
+  <h1>Voice Assistant for Calling</h1> 
+  <p>Say things like: "Call Police" or "Call doctor" or Press Emergency Call</p> 
+  <button onclick="startAssistant()">Start Voice Assistant</button>
+   <button class="emergency-button" onclick="callEmergency()">Emergency Call</button> 
+   <div id="status"></div>
+   <script> function startAssistant() { fetch('http://localhost:5000/start') .then(response => response.text()) .then(data => { document.getElementById("status").innerText = data; }) .catch(error => console.error('Error:', error)); } function callEmergency() { fetch('http://localhost:5000/emergency') .then(response => response.text()) .then(data => { document.getElementById("status").innerText = data; }) .catch(error => console.error('Error:', error)); } </script>
+        
+        </body> 
+        </html>
