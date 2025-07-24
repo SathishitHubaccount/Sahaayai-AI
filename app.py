@@ -1,7 +1,13 @@
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 from flask_cors import CORS
+import time
+import os
 
+
+#Hi fusal these is sathis 
+# These is for assignement 
+#Please accept it
 app = Flask(__name__)
 CORS(app)  # Allow frontend requests from any domain (dev only)
 
@@ -10,6 +16,7 @@ model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
 @app.route('/api/voice-assistant', methods=['POST'])
 def generate_response():
+    time.sleep(2)
     data = request.get_json()
     prompt = data.get('prompt', '')
     try:
